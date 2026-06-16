@@ -96,7 +96,7 @@ the source yourself to fit a prompt. Short pastes: just structure them inline. S
 
 **c) Fill three things from what you extracted:**
 - **CLAUDE.md** — keep the coaching *engine* verbatim; fill the identity (role, company, product,
-  who it's for, scope, metrics, funnel, strategy, team, terminology, tech stack). Ask only the few
+  who it's for, scope, metrics, funnel, strategy, team, terminology, tools, tech stack). Ask only the few
   short questions needed if a document didn't cover them — batch them. **Update** the skills and
   templates indexes to match what actually exists (don't preserve pointers to things that aren't
   there). Add a short elicited **goal + "how hard should I push you?"** note — those two calibration
@@ -221,5 +221,8 @@ end — so a session that stops mid-flow leaves accurate state for the next run.
   contradiction for the user to resolve rather than silently picking one.
 - **Never touch or echo secrets.** Don't open `.env` or anything holding keys/tokens; before saving
   code-derived context, scan your own output for stray tokens, keys, IPs, or local paths and strip them.
+- **Don't pressure for numbers.** If a metric is unknown, write a clear `{{TODO: …}}` or omit it —
+  never push the user to estimate, never guess, and never leave a half-empty section implying data
+  that isn't there.
 - **The "Yourself" bucket is private.** Offer it; explain the payoff; never push it in a shared room.
 - **Don't over-fill.** Starter files are seeds with forcing-function sections, not encyclopedias.

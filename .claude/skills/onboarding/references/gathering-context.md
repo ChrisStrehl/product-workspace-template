@@ -111,3 +111,5 @@ After a conversation, capture **only the *new* learnings** — not what's alread
 5. **Don't re-record what's already known.** Writing back facts the workspace already holds buries the genuinely new learning under noise. Capture only the delta, in the user's exact words for the things that matter most.
 
 6. **Don't treat the buckets as a checklist to complete in one run.** Forcing all four to full depth in a single sitting exhausts the user and produces thin, dutiful answers. Breadth first — a starter file in each — then depth on deliberate re-runs.
+
+7. **Don't pressure for numbers the user doesn't have.** If a metric or figure is unknown, don't push for an estimate — write it as a clear `{{TODO: …}}` or leave it out of the file entirely. Never a guess, and never a half-filled metrics section implying data that isn't there.

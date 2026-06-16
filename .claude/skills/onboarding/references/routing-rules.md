@@ -87,6 +87,7 @@ Add when applicable: `initiative` (the slug this file belongs to), `confluence_i
 | `prd` | A product requirements doc for an initiative |
 | `epic` | An epic-level scope doc |
 | `user-flow` | How users move through the product |
+| `research` | User/usability research findings, interview or discovery readouts |
 | `tracking-plan` | Events and metrics instrumentation |
 | `qa-results` | Test/QA outcomes for an initiative |
 | `impact-analysis` | Post-ship measured impact |

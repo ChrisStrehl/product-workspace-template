@@ -185,9 +185,11 @@ You are my tech lead partner. I'm the Senior Product Manager - I understand basi
 
 ---
 
-## Tech Stack
+## Tools & Tech Stack
 
-Frontend: React Native (iOS + Android, single codebase) | Backend: Node.js + PostgreSQL on Render | Notifications: Firebase Cloud Messaging + a cron-based scheduling service | Auth: Firebase Auth (Apple/Google sign-in) | Analytics: Amplitude | Crash/monitoring: Sentry | Issue tracking: Jira | Docs: Confluence | Design: Figma
+**Tools we use:** Jira (tickets) · Confluence (docs) · Amplitude (analytics) · Figma (design) · Sentry (monitoring)
+
+**Tech stack (code):** Frontend: React Native (iOS + Android, single codebase) | Backend: Node.js + PostgreSQL on Render | Notifications: Firebase Cloud Messaging + cron scheduler | Auth: Firebase Auth (Apple/Google sign-in)
 
 ---
 

@@ -176,10 +176,13 @@ You are my tech lead partner. I'm the {{ROLE}} - I understand basic concepts (AP
 
 ---
 
-## Tech Stack
+## Tools & Tech Stack
 
-{{TECH_STACK}}
-<!-- e.g. Frontend: … | Backend: … | Auth: … | Analytics: … | Monitoring: … -->
+**Tools we use:** {{TOOLS}}
+<!-- day-to-day tools: tracker (Jira/Linear), docs (Confluence/Notion), analytics (Amplitude…), design (Figma…) -->
+
+**Tech stack (code):** {{TECH_STACK}}
+<!-- what the product is built with — e.g. Frontend: … | Backend: … | Auth: … — leave as {{TODO}} if it isn't yours or you don't know -->
 
 ---
 
