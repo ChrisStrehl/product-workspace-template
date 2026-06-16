@@ -69,7 +69,12 @@ skills. A skill that tries to do everything does nothing well — stay in this l
    > can reach your real work, **(2)** pull in what already exists, **(3)** set up your current
    > initiatives, **(4)** ask you a few things to fill the gaps. The first pass takes a little while;
    > we can always deepen on a re-run. Ready?"
-4. Then proceed to the first unfinished step (or one they ask for).
+4. **On a first run, make it theirs — detach the template remote.** If `git remote -v` shows `origin`
+   pointing at the template repo (e.g. `product-workspace-template`), this is a *clone* of the public
+   template, not their own repo. Before writing any real context, tell them and offer to
+   `git remote remove origin` (or repoint it to their own private repo) — otherwise their company data
+   could get pushed back to the public template. ("Use this template" on GitHub avoids this entirely.)
+5. Then proceed to the first unfinished step (or one they ask for).
 
 ---
 
@@ -80,15 +85,20 @@ skills. A skill that tries to do everything does nothing well — stay in this l
 The lesson that makes onboarding fast: wire up *everything* in one upfront pass, so exploration then
 happens all at once — not connect-one → explore → connect-next → explore.
 
-**a) Inventory the sources.** Ask once: *"What do you work in, and what's worth me pulling from?"*
-Walk the tiers so they know what to point at (detail in `references/gathering-context.md`):
+**a) Inventory the sources — by *function*, not a fixed list.** Don't recite tool names ("Jira or
+Linear? Figma?"). Ask what they use for each *job*, so you catch whatever they actually have: *"Where
+do you keep docs? What do you use for tickets/roadmap? For analytics? For design? For meeting notes?
+Where's your code?"* Map each tool they name to its connector, and record it in CLAUDE.md's Tools line.
+Then walk the tiers so they know what's worth pointing at (detail in `references/gathering-context.md`):
 - **Big containers** — a whole Confluence/Notion space, the codebase/repos, an analytics workspace.
 - **Company/strategy level** — strategy deck, KPI dashboard, company overview.
 - **Initiative level** — PRDs, specs, tracking plans for what they're building now.
 
-**b) Connect the tools + collect their pointers.** For each tool: install the plugin, have the user
-authenticate, `/reload-plugins`, and **verify it actually works** (`claude mcp list`) before relying
-on it. Crucially, **collect the pointers each tool needs to be useful in the same pass** — connecting
+**b) Connect the tools + collect their pointers.** For each tool: guide the user to install the plugin
+**through the `/plugin` manager** (run `/plugin` → **Discover** tab → search → install — the
+`/plugin install <name>@claude-plugins-official` one-liner is a CLI shortcut that may not work in the
+VS Code extension), have them authenticate, `/reload-plugins`, and **verify it actually works**
+(`claude mcp list`) before relying on it. Crucially, **collect the pointers each tool needs to be useful in the same pass** — connecting
 Figma does nothing without the specific *file URLs*; Confluence needs the *space(s)*; the tracker
 needs the *project key*; the codebase needs the *repo(s)* (see `references/codebase-setup.md`). Gather
 all of these now so Step 2 can run against everything at once. See `references/mcp-setup.md`.

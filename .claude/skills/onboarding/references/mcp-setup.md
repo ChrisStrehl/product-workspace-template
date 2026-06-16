@@ -14,6 +14,8 @@ Treat **every** named tool as a marketplace plugin — there's no "official plug
 
 This is Step 1 of the flow, and it runs *before* Step 2 gathers anything. The goal: wire up **all** the user's tools and collect **all** their access pointers in one pass, so exploration (Step 2) can then fan out against everything at once. The slow, wrong way is the connect-one → explore → connect-next → explore loop; it serializes the wait on every source. Connect first, point everything, verify — *then* let the parallel crawl do the heavy lifting.
 
+Identify the tools by **function**, not by reciting names: ask what they use for *docs, tickets/roadmap, analytics, design, meetings, and code* — that catches whatever they actually use (not just the names you'd guess), and you map each to its plugin below.
+
 ## Collect the pointers, not just the connection
 
 Connecting a plugin is rarely enough on its own. Each tool needs **pointers** to be useful — the specific things to look at — and you collect those in the *same breath* as the connection, not later. A connected Figma with no file URLs can do nothing.
@@ -39,7 +41,7 @@ The single most important thing to internalize is the boundary. You can do all t
 | The skill CAN do (no human help) | The human MUST do |
 |---|---|
 | **Merge** `permissions.allow` into `.claude/settings.local.json` (read-merge-write) — **effective immediately**, kills the per-call approval prompts | Complete **OAuth**: open `/mcp` → select the server → Authenticate → finish the browser login |
-| **Install** plugins via `/plugin install <name>@claude-plugins-official` (or `claude plugin install <name>@claude-plugins-official` from Bash) | — |
+| **Generate** the exact install + auth steps for each tool | **Install interactively**: `/plugin` → **Discover** tab → search → install (the `/plugin install <name>@claude-plugins-official` one-liner is a CLI-only shortcut — it may not work in the VS Code extension) |
 | **Activate** changes with `/reload-plugins` — **no full restart needed** | — |
 | **Verify** with `claude mcp list` (or the `/plugin` Installed tab) | — |
 
@@ -57,8 +59,7 @@ Two rules follow:
 Do your part first (merge permissions, prepare the exact commands). Then present the human's part as a short numbered hand-off, not a wall of caveats:
 
 > I've merged the permissions into `settings.local.json`. Now your four steps:
-> 1. **Install** — run these in the session:
->    `/plugin install atlassian@claude-plugins-official`
+> 1. **Install** — run `/plugin`, open the **Discover** tab, search each tool (e.g. "atlassian"), and install it there. (In a terminal CLI you can shortcut with `/plugin install atlassian@claude-plugins-official`, but the Discover manager always works — use it in the VS Code extension.)
 > 2. **Authenticate** — open `/mcp`, pick each server → Authenticate, finish the browser login.
 > 3. **Activate** — run `/reload-plugins` (add `--force` if it warns about the prompt cache).
 > 4. **I verify** — I'll run `claude mcp list` and confirm each one shows connected before calling it live.

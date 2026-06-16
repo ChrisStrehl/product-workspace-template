@@ -14,7 +14,7 @@ Three layers, each building on the one below:
 
 ## Quick start (in order)
 
-1. **Copy this repo** somewhere on your machine and open it in Claude Code.
+1. **Get your own copy.** Click **"Use this template"** on GitHub to spin up your own repo (cleanest) — or clone it. **If you clone, run `git remote remove origin` first**, so your personalized workspace never pushes back to this public template. (Onboarding also detects this and offers to detach it.) Open the folder in Claude Code.
 2. **Run the onboarding skill** — say: *"Run the onboarding skill."* It interviews you for a few minutes and rewrites this workspace around you.
 3. **Connect a tool** — add one MCP from the official marketplace (onboarding tells you which).
 
