@@ -1,0 +1,34 @@
+# Personal/local Claude Code settings — never commit
+.claude/settings.local.json
+
+# Onboarding runtime state + ingest scratch (the data/ README stays tracked)
+.claude/data/**/state.json
+.claude/data/**/ingest-*.md
+
+# Local codebase snapshots / symlinks (see references/codebase-setup.md)
+Codebase/
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+
+# Dependencies / build artifacts (if code gets added)
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+.ruff_cache/
+.pytest_cache/
+.next/
+dist/
+build/
+
+# Research / browser captures
+.playwright-mcp/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
