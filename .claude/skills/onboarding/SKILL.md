@@ -40,9 +40,12 @@ skills. A skill that tries to do everything does nothing well — stay in this l
    pull context in, structure it. The moment you find yourself analyzing a funnel, suggesting an
    experiment, or recommending the user act on a ticket, you've drifted. Read what exists, file it,
    move on. Every next step you propose is a *workspace-building* move, never a product task.
-2. **Connect first, then ingest, then interview.** Get access sorted *before* exploring (you can't
-   gather from a tool you can't reach). Then ingest from sources. Open-ended interviewing can run
-   forever, so it's the **final, bounded** step — ask only logistics until then.
+2. **Connect first, ingest second, interview last — and infer before you ask.** Get access sorted
+   *before* exploring (you can't gather from a tool you can't reach), then ingest, then interview. You'll
+   have access to everything — so **figure out role, scope, what they own, "what kind of PM"** from the
+   gathered material; only *ask* what the material genuinely can't answer, and only at the end. The early
+   phase asks exactly one kind of question — *what tools do you use, and what should I point them at* —
+   and nothing about identity. Open-ended interviewing runs forever, so keep it final and bounded.
 3. **Discoverability, not minimalism.** This is Claude *Code*, not Claude *Projects*: it retrieves
    files *selectively*, so gather **richly** and make it **findable** — disciplined frontmatter +
    a current index in CLAUDE.md + a navigable folder structure. "Keep it indexed," not "keep it small."
@@ -85,6 +88,11 @@ skills. A skill that tries to do everything does nothing well — stay in this l
 The lesson that makes onboarding fast: wire up *everything* in one upfront pass, so exploration then
 happens all at once — not connect-one → explore → connect-next → explore.
 
+**This step is logistics only.** The only questions you ask here are *which tools they use* and *what to
+point them at*. Do **not** ask about their role, scope, what they own, "what kind of PM" they are, or
+their goals — you'll infer almost all of that from the gathered material in Step 2, and ask the few real
+gaps in Step 4. Resist the urge to start interviewing now.
+
 **a) Inventory the sources — by *function*, not a fixed list.** Don't recite tool names ("Jira or
 Linear? Figma?"). Ask what they use for each *job*, so you catch whatever they actually have: *"Where
 do you keep docs? What do you use for tickets/roadmap? For analytics? For design? For meeting notes?
@@ -125,9 +133,11 @@ Now pull it all in — **in parallel**, because this is the slow part.
   **1:1** (full text, with a short summary on top), not compressed away. De-noising is for noisy/
   voluminous sources, not your source-of-truth.
 - **Fill three things** from what you gathered (+ anything pasted):
-  - **CLAUDE.md** — engine verbatim; fill identity (role, company, product, who it's for, scope,
-    metrics, funnel, strategy, team, terminology, tools, tech stack). **Update** the skills/templates
-    indexes to match what exists. Add a short elicited **goal + "how hard should I push you?"** note.
+  - **CLAUDE.md** — engine verbatim; **infer the identity from what you gathered** (role, company,
+    product, who it's for, scope, metrics, funnel, strategy, team, terminology, tools, tech stack) — the
+    connected tools and docs reveal most of it, so don't ask what you can read. Mark genuine gaps as
+    `{{TODO: …}}` for Step 4. **Update** the skills/templates indexes to match what exists. (The goal +
+    "how hard should I push you?" calibration is a Step 4 question — it's the one thing you can't infer.)
   - **The folder structure** — create navigable `context/` subfolders as content lands: `General
     company context/`, `Strategy/`, `Bets/`, `General product context/`, `User Flows/`, `Team
     context/`, and a private `Yourself/`. Route per `references/routing-rules.md`.
@@ -152,8 +162,10 @@ live. **Confirm before saving.** Add each initiative to the resource index.
 
 ### Step 4 — Fill the gaps (the bounded interview, last)
 
-Look at the assembled workspace and ask: *what's missing for good general product work?* Surface the
-**top few** gaps, explain why each matters, ask — batch short ones, one-at-a-time for paragraphs.
+Look at the assembled workspace and ask: *what's missing for good general product work?* This is where
+the **goal + "how hard should I push you?"** calibration happens (the one thing you can't infer), plus
+any identity/scope gaps the gathered material left open — don't re-ask what you already inferred. Surface
+the **top few** gaps, explain why each matters, ask — batch short ones, one-at-a-time for paragraphs.
 Capture answers in the user's words, route, index. Then **stop and offer to continue later.** If a
 metric is unknown, write a clear `{{TODO: …}}` — never pressure for an estimate. The "Yourself"
 bucket is offered privately, never pushed.
@@ -197,6 +209,9 @@ Then **update `.claude/data/onboarding/state.json`** as each step completes (not
   analysis, no queries, no proposed experiments, no "close/triage these tickets." That's other skills.
 - **Connect and verify before you explore**, and gather all access pointers (Figma files, Confluence
   spaces, project keys, repos) up front so exploration runs in one parallel pass.
+- **Don't interview early — infer instead.** Steps 1–2 ask only logistics (which tools, what to point
+  at). Role, scope, ownership, "what kind of PM" — infer from what you gather; save the real questions
+  (including the goal + push-level calibration) for Step 4. The material answers most of them for free.
 - **Never clobber edits.** Auto-write only on a true first run; otherwise propose a diff.
 - **Use subagents for the heavy reads — in parallel, one per source** — and hand them a path/pointer;
   never re-summarize a source to fit a prompt. Bound each crawl; prefer recent docs.
