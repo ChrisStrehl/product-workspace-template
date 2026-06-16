@@ -77,6 +77,8 @@ last_updated: 2026-06-14
 
 Add when applicable: `initiative` (the slug this file belongs to), `confluence_id` / `jira_key` (so Claude can trace back to the source tool), `goals`, `bet` (the strategy bet this supports).
 
+**Any file containing data or metrics must also carry a recency indicator** — a `data_as_of` date or an "as of <period>" line — *in addition to* `last_updated`. The two answer different questions: `last_updated` is when the file was last touched; the recency indicator is the period the data actually reflects. Without it, a year-old funnel or a stale KPI snapshot reads as current and drives a wrong decision. So a metrics file states the window its numbers cover, never just when it was edited.
+
 `type` values:
 
 | `type` | Use for |

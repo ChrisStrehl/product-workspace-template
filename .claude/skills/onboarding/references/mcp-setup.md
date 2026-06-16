@@ -10,6 +10,28 @@ Connect the user's tools by installing each one as a marketplace plugin, doing e
 
 Treat **every** named tool as a marketplace plugin — there's no "official plugin vs. plain MCP server" split to worry about. The user's tracker, docs, analytics, and meeting tools all install the same way: `/plugin install <name>@claude-plugins-official`. That uniformity is the point: one flow for everything.
 
+## Connect everything in ONE upfront pass — before any exploration
+
+This is Step 1 of the flow, and it runs *before* Step 2 gathers anything. The goal: wire up **all** the user's tools and collect **all** their access pointers in one pass, so exploration (Step 2) can then fan out against everything at once. The slow, wrong way is the connect-one → explore → connect-next → explore loop; it serializes the wait on every source. Connect first, point everything, verify — *then* let the parallel crawl do the heavy lifting.
+
+## Collect the pointers, not just the connection
+
+Connecting a plugin is rarely enough on its own. Each tool needs **pointers** to be useful — the specific things to look at — and you collect those in the *same breath* as the connection, not later. A connected Figma with no file URLs can do nothing.
+
+When you connect a tool, ask in the same breath: **"What should I point it at?"**
+
+- **Figma** → the specific **file URLs** the user wants looked at.
+- **Confluence / Notion** → the **space key(s)** / specific pages to crawl.
+- **Jira / Linear** → the **project / board key**.
+- **Codebase** → the **repo(s)** to wire in (see `references/codebase-setup.md`).
+- **Amplitude / analytics** → the **workspace / project** (and which dashboards matter).
+
+Hold all of these by the end of the step — they're what Step 2 fans out against. A connection without its pointer is a dead end you'll only discover mid-crawl.
+
+## Verify before you rely on it — before exploring
+
+Each connector must be confirmed working with **`claude mcp list` before Step 2 leans on it.** Don't discover a dead connection mid-exploration — that wastes the whole parallel pass. "I installed it" ≠ "it works" (see the next section); the verify gate is what lets you trust the upfront pass and move on.
+
 ## Lead with the truth: what you CAN and CAN'T do
 
 The single most important thing to internalize is the boundary. You can do all the *declarative* wiring — merging permissions, generating exact install commands, reloading plugins, verifying. You **cannot** click through a browser OAuth login. Be honest about this up front so the hand-off feels like a clean division of labor, not a failure.
@@ -131,3 +153,5 @@ Record each connector in `state.json` as `connected` / `needs_auth` / `not_set_u
 5. **Don't leave a `<marketplace>` placeholder.** It's always `@claude-plugins-official` (auto-available); if a name isn't found, `/plugin marketplace update claude-plugins-official` or re-add it — don't guess.
 6. **Don't wildcard a connector you don't fully trust.** `mcp__…__*` auto-approves write/destructive tools too. For anything powerful-but-rarely-needed, name the specific tools (the Circleback `SearchMeetings` pattern).
 7. **Don't set up tools the user doesn't use.** Five connectors the team never touches is clutter and attack surface. Wire the highest-value one first, add others on demand.
+8. **Don't connect a tool without grabbing its pointers.** A connected Figma with no file URLs is useless; same for Confluence with no space, a tracker with no project key, or a wired codebase with no repo. Collect files / spaces / projects / repos in the *same pass* you connect — that's what Step 2 explores against.
+9. **Don't start exploring before connections are verified.** Run `claude mcp list` and confirm every connector is live *before* Step 2 leans on any of them. Finding a dead connector mid-crawl wastes the parallel pass you set up — verify the whole batch up front, then fan out.

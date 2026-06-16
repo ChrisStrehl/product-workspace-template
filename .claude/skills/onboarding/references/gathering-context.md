@@ -14,6 +14,16 @@ The mindset that makes this work: **ingestion-first.** A pasted strategy doc, la
 
 When something gets pasted, hand it to a subagent to de-noise (see `references/ingestion.md`), then route the result into the navigable `context/` subfolders (see `references/routing-rules.md`). Don't dump raw material into the main thread.
 
+## What to point me at — by tier
+
+When you ask "what's worth me pulling from?", give the user a menu so they know the *shape* of what helps — not just a blank "send me stuff." This pairs with connecting the tools first (Step 1 of the skill): once a Confluence/Notion/analytics connector is live, the richest move is to point me at a whole container and let me pull from it directly, rather than hand-picking pages. Walk these three tiers, biggest first:
+
+- **Big containers** — a whole Confluence/Notion space, the codebase/repos, an analytics workspace. The richest input by far: one pointer yields dozens of documents. Point me at the *space*, not individual pages — I'll crawl it. (Best paired with the connector already wired up so I can read it without copy-paste.)
+- **Company / strategy level** — the strategy deck, a KPI dashboard, a company overview or one-pager, a competitor table. The slowly-changing foundation that grounds every later judgment.
+- **Initiative level** — PRDs, specs, and tracking plans for what they're building *right now*. Scoped to live work; lands in the initiative folders, not `context/`.
+
+Lead with the biggest tier they can give you — a connected container beats a stack of pasted pages — and only drop to paste/talk-through for sources no connector can reach.
+
 ## When there are no docs (or the user answers tersely)
 
 Never block on missing material. If the user has nothing to paste, or answers in clipped fragments:
