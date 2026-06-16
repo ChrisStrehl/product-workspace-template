@@ -2,7 +2,7 @@
 
 A starting workspace that turns Claude Code into a teammate who already knows your product, can reach your tools, and runs your repetitive work end-to-end.
 
-Built for **"Claude Code for Product Managers & Friends."** It's PM-flavored on purpose — but the structure (context / discovery / initiatives) is the same whatever your role. You'll adapt the specifics to yours. That adapting *is* the skill we're teaching.
+Built for the **"Claude Code for Product Managers & Friends."** workshop. It's PM-flavored on purpose — but the structure (context / discovery / initiatives) is the same whatever your role. You'll adapt the specifics to yours. That adapting *is* the skill we're teaching.
 
 ## The idea in one picture
 
@@ -16,9 +16,7 @@ Three layers, each building on the one below:
 
 1. **Copy this repo** somewhere on your machine and open it in Claude Code.
 2. **Run the onboarding skill** — say: *"Run the onboarding skill."* It interviews you for a few minutes and rewrites this workspace around you.
-3. **Run a skill on real work** — create an initiative, draft a PRD.
-4. **Connect a tool** — add one MCP from the official marketplace (onboarding tells you which).
-5. **Build your own skill** — use skill-creator on a task you do every week.
+3. **Connect a tool** — add one MCP from the official marketplace (onboarding tells you which).
 
 ## What's here
 
