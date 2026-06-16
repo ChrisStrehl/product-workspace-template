@@ -77,7 +77,9 @@ skills. A skill that tries to do everything does nothing well — stay in this l
    template, not their own repo. Before writing any real context, tell them and offer to
    `git remote remove origin` (or repoint it to their own private repo) — otherwise their company data
    could get pushed back to the public template. ("Use this template" on GitHub avoids this entirely.)
-5. Then proceed to the first unfinished step (or one they ask for).
+5. Then proceed to the first unfinished step. **If the workspace is already onboarded** (all core steps
+   done), don't silently pick a step — go to **"Re-runs — the deepening menu"** below and let the user
+   choose how to go deeper.
 
 ---
 
@@ -171,6 +173,27 @@ metric is unknown, write a clear `{{TODO: …}}` — never pressure for an estim
 bucket is offered privately, never pushed.
 
 → `references/gathering-context.md`.
+
+---
+
+## Re-runs — the deepening menu
+
+A **first run** is ingest-heavy: connect everything, pull in every source, and do the work *for* the
+user so they never have to explain what the tools already say. **Re-runs deepen** what's there. When
+Phase 0 detects an onboarded workspace, don't silently pick a step — offer three ways to go deeper and
+do the one they choose (suggest the highest-value one from the state file's coverage map):
+
+- **A — Build out an area.** Flesh out something thin or missing: the discovery system, a sparse
+  context bucket, a tool that isn't connected yet, metric `{{TODO}}`s, or a new initiative.
+- **B — Add more material.** Proactively ask for the *specific* artifacts that would close known gaps —
+  *"Got a PRD, epic, or user-story template? A strategy doc I haven't seen? A research readout?"* — then
+  ingest and route them (Steps 2–3). Name what's missing; don't ask vaguely for "more."
+- **C — Intake conversation.** Run the guided Q&A in `references/gathering-context.md` — one question at
+  a time, explain why each matters, challenge the seams — in the CLAUDE.md coaching posture, framed as
+  *"a few questions so I can coach you better."* Prioritize the thinnest high-value areas.
+
+All three write back to `context/` / `initiatives/`, update the resource index and the state file, and
+keep the same disciplines (infer before you ask, never fabricate, recency-stamp, build don't do the work).
 
 ---
 
